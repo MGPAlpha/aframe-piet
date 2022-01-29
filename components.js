@@ -55,6 +55,11 @@ AFRAME.registerComponent('shrinker', {
     }
 });
 
+document.addEventListener('keydown', function(event) {
+    console.log(event.key);
+    if (event.key == "e") exploders.forEach((exploder) => exploder.explode());
+  });
+
 
 AFRAME.registerComponent('exploder', {
     schema: {},
@@ -111,9 +116,10 @@ AFRAME.registerComponent('exploder', {
       },
   
       init: function () {
-        this.el.addEventListener('click', () => {
-            exploders.forEach((exploder) => exploder.explode());
-        });
+        // this.el.addEventListener('keydown', (e) => {
+        //     console.log("test");
+        //     if (e.key == "E") exploders.forEach((exploder) => exploder.explode());
+        // });
       },
   
       update: function () {
